@@ -1,0 +1,52 @@
+---
+const creations = [
+  { title: "Deep\nEarth", mobile: "/images/mobile/image-deep-earth.jpg", desktop: "/images/desktop/image-deep-earth.jpg", alt: "Deep Earth" },
+  { title: "Night\nArcade", mobile: "/images/mobile/image-night-arcade.jpg", desktop: "/images/desktop/image-night-arcade.jpg", alt: "Night Arcade" },
+  { title: "Soccer\nTeam VR", mobile: "/images/mobile/image-soccer-team.jpg", desktop: "/images/desktop/image-soccer-team.jpg", alt: "Soccer Team VR" },
+  { title: "The\nGrid", mobile: "/images/mobile/image-grid.jpg", desktop: "/images/desktop/image-grid.jpg", alt: "The Grid" },
+  { title: "From Up\nAbove VR", mobile: "/images/mobile/image-from-above.jpg", desktop: "/images/desktop/image-from-above.jpg", alt: "From Above VR" },
+  { title: "Pocket\nBorealis", mobile: "/images/mobile/image-pocket-borealis.jpg", desktop: "/images/desktop/image-pocket-borealis.jpg", alt: "Pocket Borealis" },
+  { title: "The\nCuriosity", mobile: "/images/mobile/image-curiosity.jpg", desktop: "/images/desktop/image-curiosity.jpg", alt: "The Curiosity" },
+  { title: "Make It\nFisheye", mobile: "/images/mobile/image-fisheye.jpg", desktop: "/images/desktop/image-fisheye.jpg", alt: "Fisheye" }
+];
+---
+
+<section class="max-w-[1110px] mx-auto py-12 md:py-20 px-6 lg:px-0">
+
+  <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+    <h2 class="text-4xl md:text-5xl font-light uppercase text-center md:text-left">
+      Our Creations
+    </h2>
+
+    <button class="hidden md:block border border-black px-10 py-2 tracking-[0.3em] hover:bg-black hover:text-white transition">
+      SEE ALL
+    </button>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+
+    {creations.map((item) => (
+      <div class="relative group cursor-pointer overflow-hidden h-[120px] md:h-[450px]">
+
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent md:bg-gradient-to-t md:from-black/70 z-10 md:group-hover:bg-white/75 transition-all duration-300"></div>
+
+        <img src={item.mobile} alt={item.alt} class="md:hidden w-full h-full object-cover" />
+
+        <img src={item.desktop} alt={item.alt} class="hidden md:block w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+
+        <p class="absolute bottom-4 left-6 md:bottom-8 md:left-8 text-white text-2xl md:text-3xl font-light uppercase leading-tight z-20 md:group-hover:text-black transition-colors duration-300 whitespace-pre-line">
+          {item.title}
+        </p>
+
+      </div>
+    ))}
+
+  </div>
+
+  <div class="mt-10 flex justify-center md:hidden">
+    <button class="w-full max-w-[180px] border border-black px-10 py-3 tracking-[0.3em] font-medium uppercase bg-white text-black hover:bg-black hover:text-white transition">
+      SEE ALL
+    </button>
+  </div>
+
+</section>

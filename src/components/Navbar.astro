@@ -1,0 +1,73 @@
+<header class="absolute top-0 left-0 w-full z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-6 text-white">
+
+    <a href="/" class="z-[60]">
+      <img src="/images/logo.svg" alt="Loopstudios logo" class="w-36">
+    </a>
+
+    <nav class="hidden md:flex gap-8 text-sm">
+      <a href="#" class="hover:underline">About</a>
+      <a href="#" class="hover:underline">Careers</a>
+      <a href="#" class="hover:underline">Events</a>
+      <a href="#" class="hover:underline">Products</a>
+      <a href="#" class="hover:underline">Support</a>
+    </nav>
+
+    <button
+      id="menu-btn"
+      class="md:hidden z-[60] text-white focus:outline-none"
+      aria-label="Toggle menu"
+    >
+      <img
+        id="menu-icon"
+        src="/images/icon-hamburger.svg"
+        alt="Abrir menú"
+        class="w-6 h-5"
+      >
+    </button>
+
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-black z-[55] translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center px-6"
+  >
+    <ul class="flex flex-col gap-6">
+      <li>
+        <a href="#" class="text-white text-3xl uppercase font-light tracking-widest hover:text-gray-400">About</a>
+      </li>
+      <li>
+        <a href="#" class="text-white text-3xl uppercase font-light tracking-widest hover:text-gray-400">Careers</a>
+      </li>
+      <li>
+        <a href="#" class="text-white text-3xl uppercase font-light tracking-widest hover:text-gray-400">Events</a>
+      </li>
+      <li>
+        <a href="#" class="text-white text-3xl uppercase font-light tracking-widest hover:text-gray-400">Products</a>
+      </li>
+      <li>
+        <a href="#" class="text-white text-3xl uppercase font-light tracking-widest hover:text-gray-400">Support</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const icon = document.getElementById("menu-icon");
+
+  if (btn && menu && icon) {
+    btn.addEventListener("click", () => {
+      const isClosed = menu.classList.toggle("translate-x-full");
+
+      if (isClosed) {
+        icon.setAttribute("src", "/images/icon-hamburger.svg");
+        document.body.classList.remove("overflow-hidden");
+      } else {
+        icon.setAttribute("src", "/images/icon-close.svg");
+        document.body.classList.add("overflow-hidden");
+      }
+    });
+  }
+</script>
